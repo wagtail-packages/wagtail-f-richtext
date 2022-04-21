@@ -1,0 +1,14 @@
+*.pyc
+/build
+/dist
+/wagtail_f_richtext.egg-info
+/.coverage
+/htmlcov
+/.tox
+/venv
+/.vscode
+/site
+/test_wagtail_f_richtext.db
+/node_modules
+/test-static
+/test-media
