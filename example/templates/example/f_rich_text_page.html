@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load frichtext_tags wagtailcore_tags %}
+
+{% block content %}
+    <h2 class="margin-bottom-md">{% verbatim %}{{ page.body }}{% endverbatim %}</h2>
+    <div class="container margin-bottom-md border border-2 test-raw">
+        {{ page.body }}
+    </div>
+    <h2 class="margin-bottom-md">{% verbatim %}{{ page.body|richtext }}{% endverbatim %}</h2>
+    <div class="container margin-bottom-md border border-2 test-html">
+        {{ page.body|richtext }}
+    </div>
+    <h2 class="margin-bottom-md">{% verbatim %}{{ page.body|f_richtext }}{% endverbatim %}</h2>
+    <div class="container margin-bottom-md border border-2 test-frichtext">
+        {{ page.body|f_richtext }}
+    </div>
+    <h2 class="margin-bottom-md">{% verbatim %}{{ page.body|f_richtext:"external" }}{% endverbatim %}</h2>
+    <div class="container margin-bottom-md border border-2 test-frichtext-external">
+        {{ page.body|f_richtext:"external" }}
+    </div>
+    <h2 class="margin-bottom-md">{% verbatim %}{{ page.body|f_richtext:"internal" }}{% endverbatim %}</h2>
+    <div class="container margin-bottom-md border border-2 test-frichtext-internal">
+        {{ page.body|f_richtext:"internal" }}
+    </div>
+{% endblock content %}

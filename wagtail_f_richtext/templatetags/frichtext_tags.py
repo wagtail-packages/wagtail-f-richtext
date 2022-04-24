@@ -52,6 +52,11 @@ def parse_internal(html):
 
     soup = BeautifulSoup(str(html), "html.parser")
 
+    # Classes for wrapper HTML tag
+    css_classes = (
+        " ".join(config.get("wrapper_classes")) if config.get("wrapper_classes") else ""
+    )
+
     # Add inline styles to HTML tags
     for tag, css_style in (
         config.get("add_tag_styles").items() if config.get("add_tag_styles") else []
@@ -78,13 +83,13 @@ def parse_internal(html):
             element.insert_before(soup.new_tag("div", style=style))
 
     # Add clear float inline styles
-    for tag, style in (
-        config.get("clear_float_styles").items()
-        if config.get("clear_float_styles")
-        else []
-    ):
-        for element in soup.find_all(tag):
-            element["style"] = style
+    # for tag, style in (
+    #     config.get("clear_float_styles").items()
+    #     if config.get("clear_float_styles")
+    #     else []
+    # ):
+    #     for element in soup.find_all(tag):
+    #         element["style"] = style
 
     # Remove empty tags
     for tag in (
@@ -95,9 +100,9 @@ def parse_internal(html):
                 element.decompose()
 
     # Append a clear float div to the end of the content
-    soup.append(soup.new_tag("div", style="clear: both;"))
+    soup.append(soup.new_tag("div", style="clear: both;")) if config.get("append_clear_float") else None
 
-    return mark_safe(f'<div class="f-richtext internal">{str(soup)}</div>')
+    return mark_safe(f'<div class="{css_classes}">{str(soup)}</div>')
 
 
 def parse_external(html):
@@ -113,6 +118,11 @@ def parse_external(html):
 
     soup = BeautifulSoup(str(html), "html.parser")
 
+    # Classes for wrapper HTML tag
+    css_classes = (
+        " ".join(config.get("wrapper_classes")) if config.get("wrapper_classes") else ""
+    )
+
     # Add classes to HTML tags
     for tag, css_class in (
         config.get("add_classes").items() if config.get("add_classes") else []
@@ -120,10 +130,7 @@ def parse_external(html):
         for element in soup.find_all(tag):
             element["class"] = css_class
 
-    # Classes for wrapper HTML tags
-    css_classes = " ".join(config.get("wrapper_classes"))
-
-    # Add inline style to img HTML tags
+    # Add classes to img HTML tags
     for tag, css_class in (
         config.get("image_alignment_styles").items()
         if config.get("image_alignment_styles")
@@ -132,16 +139,7 @@ def parse_external(html):
         for element in soup.find_all("img", {"class": tag}):
             element["class"] = css_class
 
-    # Add clear float styles
-    for tag, css_class in (
-        config.get("clear_float_styles").items()
-        if config.get("clear_float_styles")
-        else []
-    ):
-        for element in soup.find_all(tag):
-            element["class"] = css_class
-
-    # Remove empty tags
+    # Remove empty HTML tags
     for tag in (
         config.get("remove_empty_tags") if config.get("remove_empty_tags") else []
     ):
@@ -150,8 +148,8 @@ def parse_external(html):
                 element.decompose()
 
     # Append a clear float div to the end of the content
-    soup.append(soup.new_tag("div", style="clear: both;"))
+    soup.append(soup.new_tag("div", style="clear: both;")) if config.get(
+        "append_clearfix_classes"
+    ) else None
 
-    return mark_safe(
-        f'<div class="f-richtext external {css_classes}">{str(soup)}</div>'
-    )
+    return mark_safe(f'<div class="{css_classes}">{str(soup)}</div>')

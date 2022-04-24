@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+    <link rel="stylesheet" href="https://unpkg.com/codyhouse-framework/main/assets/css/style.min.css">
+</head>
+<body class="padding-sm border border-4 border-color-contrast-low">
+    <h1 class="margin-bottom-lg">{{ page.title }}</h1>
+    {% block content %}{% endblock content %}
+    <script src="https://unpkg.com/codyhouse-framework/main/assets/js/util.js">
+</body>
+</html>

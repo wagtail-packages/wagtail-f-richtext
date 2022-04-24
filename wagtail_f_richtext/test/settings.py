@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/stable/ref/settings/
 
 import os
 import dj_database_url
+from example.conf import *
 
 # Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,6 +31,7 @@ ALLOWED_HOSTS = ["localhost", "testserver"]
 # Application definition
 
 INSTALLED_APPS = [
+    "example",
     "wagtail_f_richtext",
     "wagtail_f_richtext.test",
     "wagtail.contrib.search_promotions",

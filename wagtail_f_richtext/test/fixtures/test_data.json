@@ -1,0 +1,519 @@
+[
+{
+  "model": "wagtailcore.site",
+  "pk": 1,
+  "fields": {
+    "hostname": "localhost",
+    "port": 80,
+    "site_name": "",
+    "root_page": 2,
+    "is_default_site": true
+  }
+},
+{
+  "model": "wagtailcore.collection",
+  "pk": 1,
+  "fields": {
+    "path": "0001",
+    "depth": 1,
+    "numchild": 0,
+    "name": "Root"
+  }
+},
+{
+  "model": "wagtailcore.locale",
+  "pk": 1,
+  "fields": {
+    "language_code": "en"
+  }
+},
+{
+  "model": "wagtailcore.workflowpage",
+  "pk": 1,
+  "fields": {
+    "workflow": 1
+  }
+},
+{
+  "model": "wagtailcore.workflowtask",
+  "pk": 1,
+  "fields": {
+    "sort_order": 0,
+    "workflow": 1,
+    "task": 1
+  }
+},
+{
+  "model": "wagtailcore.task",
+  "pk": 1,
+  "fields": {
+    "name": "Moderators approval",
+    "content_type": [
+      "wagtailcore",
+      "groupapprovaltask"
+    ],
+    "active": true
+  }
+},
+{
+  "model": "wagtailcore.workflow",
+  "pk": 1,
+  "fields": {
+    "name": "Moderators approval",
+    "active": true
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Moderators",
+    "permissions": [
+      [
+        "access_admin",
+        "wagtailadmin",
+        "admin"
+      ],
+      [
+        "add_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "change_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "choose_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "delete_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "add_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "change_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "choose_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "delete_image",
+        "wagtailimages",
+        "image"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Editors",
+    "permissions": [
+      [
+        "access_admin",
+        "wagtailadmin",
+        "admin"
+      ],
+      [
+        "add_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "change_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "choose_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "delete_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "add_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "change_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "choose_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "delete_image",
+        "wagtailimages",
+        "image"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "md5$dSU5s2gNcLNkBkLXwjo8iT$f842e2cf2c8348d84f8607a79da5f7ba",
+    "last_login": "2022-04-24T16:05:47.797Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-04-24T16:05:32.391Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "wagtailcore.pagesubscription",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "page": 3,
+    "comment_notifications": true
+  }
+},
+{
+  "model": "wagtailcore.pagesubscription",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "page": 4,
+    "comment_notifications": true
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 1,
+  "fields": {
+    "content_type": [
+      "example",
+      "frichtextpage"
+    ],
+    "label": "f-rich-text-page",
+    "action": "wagtail.create",
+    "data_json": "\"\"",
+    "timestamp": "2022-04-24T16:07:53.135Z",
+    "uuid": "04d96217-e214-4eb8-87ed-61571b573b60",
+    "user": [
+      "admin"
+    ],
+    "content_changed": true,
+    "deleted": false,
+    "page": 3,
+    "revision": null
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 2,
+  "fields": {
+    "content_type": [
+      "example",
+      "frichtextpage"
+    ],
+    "label": "f-rich-text-page",
+    "action": "wagtail.publish",
+    "data_json": "null",
+    "timestamp": "2022-04-24T16:07:53.184Z",
+    "uuid": "04d96217-e214-4eb8-87ed-61571b573b60",
+    "user": [
+      "admin"
+    ],
+    "content_changed": true,
+    "deleted": false,
+    "page": 3,
+    "revision": 1
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 3,
+  "fields": {
+    "content_type": [
+      "example",
+      "frichtextpagestreamfield"
+    ],
+    "label": "f-rich-text-streamfield",
+    "action": "wagtail.create",
+    "data_json": "\"\"",
+    "timestamp": "2022-04-24T16:08:27.400Z",
+    "uuid": "a1ec26f1-bfd4-4e9e-a036-18ad636a72ae",
+    "user": [
+      "admin"
+    ],
+    "content_changed": true,
+    "deleted": false,
+    "page": 4,
+    "revision": null
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 4,
+  "fields": {
+    "content_type": [
+      "example",
+      "frichtextpagestreamfield"
+    ],
+    "label": "f-rich-text-streamfield",
+    "action": "wagtail.publish",
+    "data_json": "null",
+    "timestamp": "2022-04-24T16:08:27.450Z",
+    "uuid": "a1ec26f1-bfd4-4e9e-a036-18ad636a72ae",
+    "user": [
+      "admin"
+    ],
+    "content_changed": true,
+    "deleted": false,
+    "page": 4,
+    "revision": 2
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 5,
+  "fields": {
+    "content_type": [
+      "example",
+      "frichtextpage"
+    ],
+    "label": "f-rich-text-page",
+    "action": "wagtail.edit",
+    "data_json": "\"\"",
+    "timestamp": "2022-04-24T16:08:36.130Z",
+    "uuid": "8f5bd422-5587-498b-bf2b-0a9caa87f5f5",
+    "user": [
+      "admin"
+    ],
+    "content_changed": true,
+    "deleted": false,
+    "page": 3,
+    "revision": 3
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 6,
+  "fields": {
+    "content_type": [
+      "example",
+      "frichtextpage"
+    ],
+    "label": "f-rich-text-page",
+    "action": "wagtail.publish",
+    "data_json": "null",
+    "timestamp": "2022-04-24T16:08:36.167Z",
+    "uuid": "8f5bd422-5587-498b-bf2b-0a9caa87f5f5",
+    "user": [
+      "admin"
+    ],
+    "content_changed": true,
+    "deleted": false,
+    "page": 3,
+    "revision": 3
+  }
+},
+{
+  "model": "wagtailcore.groupapprovaltask",
+  "pk": 1,
+  "fields": {
+    "groups": [
+      [
+        "Moderators"
+      ]
+    ]
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 1,
+  "fields": {
+    "path": "0001",
+    "depth": 1,
+    "numchild": 1,
+    "translation_key": "91af0732-71e0-40a0-9f84-93d693dc0d11",
+    "locale": 1,
+    "title": "Root",
+    "draft_title": "Root",
+    "slug": "root",
+    "content_type": [
+      "wagtailcore",
+      "page"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "first_published_at": null,
+    "last_published_at": null,
+    "latest_revision_created_at": null,
+    "live_revision": null,
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 2,
+  "fields": {
+    "path": "00010001",
+    "depth": 2,
+    "numchild": 2,
+    "translation_key": "72c5dff3-3069-4927-b5d0-a1fcf5d4d296",
+    "locale": 1,
+    "title": "Welcome to your new Wagtail site!",
+    "draft_title": "Welcome to your new Wagtail site!",
+    "slug": "home",
+    "content_type": [
+      "wagtailcore",
+      "page"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "first_published_at": null,
+    "last_published_at": null,
+    "latest_revision_created_at": null,
+    "live_revision": null,
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 3,
+  "fields": {
+    "path": "000100010001",
+    "depth": 3,
+    "numchild": 0,
+    "translation_key": "ea0c3b74-b4ec-4137-ad0f-4ec967388b94",
+    "locale": 1,
+    "title": "f-rich-text-page",
+    "draft_title": "f-rich-text-page",
+    "slug": "f-rich-text-page",
+    "content_type": [
+      "example",
+      "frichtextpage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/f-rich-text-page/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "first_published_at": "2022-04-24T16:07:53.163Z",
+    "last_published_at": "2022-04-24T16:08:36.144Z",
+    "latest_revision_created_at": "2022-04-24T16:08:36.121Z",
+    "live_revision": null,
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 4,
+  "fields": {
+    "path": "000100010002",
+    "depth": 3,
+    "numchild": 0,
+    "translation_key": "3e019869-8376-43be-9c8f-3b488a858a0e",
+    "locale": 1,
+    "title": "f-rich-text-streamfield",
+    "draft_title": "f-rich-text-streamfield",
+    "slug": "f-rich-text-streamfield",
+    "content_type": [
+      "example",
+      "frichtextpagestreamfield"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/f-rich-text-streamfield/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "first_published_at": "2022-04-24T16:08:27.427Z",
+    "last_published_at": "2022-04-24T16:08:27.427Z",
+    "latest_revision_created_at": "2022-04-24T16:08:27.411Z",
+    "live_revision": null,
+    "alias_of": null
+  }
+},
+{
+  "model": "example.frichtextpagestreamfield",
+  "pk": 4,
+  "fields": {
+    "body": "[{\"type\": \"rich_text\", \"value\": \"<h2 data-block-key=\\\"sxvyu\\\">Heading 2</h2><h3 data-block-key=\\\"7nmh2\\\">Heading 3</h3><h4 data-block-key=\\\"3nihe\\\">Heading 4</h4><p data-block-key=\\\"edmb9\\\">Paragraph. Paragraph. Paragraph. Paragraph. Paragraph.</p><ul><li data-block-key=\\\"2hr2r\\\">ul lits item</li><li data-block-key=\\\"3bs4o\\\">ul lits item</li><li data-block-key=\\\"bca1r\\\">ul lits item</li></ul><ol><li data-block-key=\\\"b7tar\\\">ol list item</li><li data-block-key=\\\"m04d\\\">ol list item</li><li data-block-key=\\\"dckfj\\\">ol list item</li></ol><p data-block-key=\\\"fi5v9\\\"><b>Bold</b></p><p data-block-key=\\\"c4e9p\\\"><i>Italic</i></p>\", \"id\": \"928f25bb-6663-4834-a8b7-c972ac0308e5\"}]"
+  }
+},
+{
+  "model": "example.frichtextpage",
+  "pk": 3,
+  "fields": {
+    "body": "<h2 data-block-key=\"mswlu\">Heading 2</h2><h3 data-block-key=\"7aotm\">Heading 3</h3><h4 data-block-key=\"e22i7\">Heading 4</h4><p data-block-key=\"3f266\">Paragraph. Paragraph. Paragraph. Paragraph. Paragraph.</p><ul><li data-block-key=\"auoch\">ul lits item</li><li data-block-key=\"ahsmo\">ul lits item</li><li data-block-key=\"2b5kj\">ul lits item</li></ul><ol><li data-block-key=\"8ljtv\">ol list item</li><li data-block-key=\"2hf8o\">ol list item</li><li data-block-key=\"1ahfc\">ol list item</li></ol><p data-block-key=\"d74r9\"><b>Bold</b></p><p data-block-key=\"al3hf\"><i>Italic</i></p>"
+  }
+}
+]
