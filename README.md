@@ -1,5 +1,7 @@
 # Wagtail F Richtext
 
+[![test](https://github.com/nickmoreton/wagtail-f-richtext/actions/workflows/test.yml/badge.svg)](https://github.com/nickmoreton/wagtail-f-richtext/actions/workflows/test.yml)
+
 An alternative Wagtail `richtext` filter.
 
 Parse the HTML content from a RichTextField or RichTextBlock in the same way that the Wagtail richtext filter works.
