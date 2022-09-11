@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/stable/ref/settings/
 
 import os
 
+from wagtail import VERSION as WAGTAIL_VERSION
+
 # from temp.conf import *
 
 # Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
@@ -30,6 +32,11 @@ ALLOWED_HOSTS = ["localhost", "testserver"]
 
 # Application definition
 
+if WAGTAIL_VERSION >= (3, 0):
+    WAGTAIL = "wagtail"
+else:
+    WAGTAIL = "wagtail.core"
+
 INSTALLED_APPS = [
     "wagtail_f_richtext",
     "wagtail_f_richtext.test",
@@ -48,7 +55,7 @@ INSTALLED_APPS = [
     "wagtail.contrib.routable_page",
     "wagtail.contrib.styleguide",
     "wagtail.sites",
-    "wagtail.core",
+    WAGTAIL,
     "taggit",
     "rest_framework",
     "django.contrib.admin",

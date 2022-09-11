@@ -2,8 +2,8 @@
 
 An alternative Wagtail `richtext` filter.
 
-> Parse the HTML content from a RichTextField or RichTextBlock in the same way that the Wagtail richtext filter works.
-<br> <br>
+Parse the HTML content from a RichTextField or RichTextBlock in the same way that the Wagtail richtext filter works.
+
 Optionally add an argument to specify either in-line styles or css framework classes to be injected to style the inner content.
 
 Use your own custom css classes or one the many other utility-first CSS frameworks like: (in no particular preference or order)

@@ -200,7 +200,7 @@ F_RICHTEXT_INTERNAL_CONFIG = {
     ],
 }
 
-### CODYHOUSE ###
+# copyhouse framework settings
 F_RICHTEXT_EXTERNAL_CONFIG = {
     "add_classes": {
         "h2": "title",

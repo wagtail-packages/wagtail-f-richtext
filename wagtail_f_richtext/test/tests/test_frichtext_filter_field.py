@@ -1,9 +1,7 @@
 from bs4 import BeautifulSoup
 from django.test import TestCase, override_settings
-from wagtail_f_richtext.test.models import (
-    HomePage,
-    FRichTextPage,
-)
+
+from wagtail_f_richtext.test.models import FRichTextPage, HomePage
 
 
 class TestFrichtextFilterField(TestCase):
@@ -49,8 +47,8 @@ class TestFrichtextFilterField(TestCase):
                 "i": "font-style: italic;",
             },
             "image_alignment_styles": {
-                "richtext-image left": "float: left; margin-right: 1rem; margin-left: 0; margin-bottom: 1rem; height: auto;",
-                "richtext-image right": "float: right; margin-left: 1rem; margin-right: 0; margin-bottom: 1rem; height: auto;",
+                "richtext-image left": "float: left; margin-right: 1rem; margin-left: 0; margin-bottom: 1rem; height: auto;",  # noqa: E501
+                "richtext-image right": "float: right; margin-left: 1rem; margin-right: 0; margin-bottom: 1rem; height: auto;",  # noqa: E501
                 "richtext-image full-width": "margin: 1em 0; width: 100%; height: auto;",
             },
             "image_alignment_prepend_clear_floats": {

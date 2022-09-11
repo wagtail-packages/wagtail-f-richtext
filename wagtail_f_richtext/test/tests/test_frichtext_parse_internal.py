@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from django.test import TestCase, override_settings
+
 from wagtail_f_richtext.templatetags.frichtext_tags import parse_internal
 
 

@@ -3,7 +3,12 @@ from django import template
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
-from wagtail.core.rich_text import RichText, expand_db_html
+from wagtail import VERSION as WAGTAIL_VERSION
+
+if WAGTAIL_VERSION >= (3, 0):
+    from wagtail.rich_text import RichText, expand_db_html
+else:
+    from wagtail.core.rich_text import RichText, expand_db_html
 
 register = template.Library()
 

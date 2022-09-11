@@ -7,3 +7,6 @@ test:
 
 tox:
 	tox --skip-missing-interpreters
+
+lint:
+	pre-commit run --all-files

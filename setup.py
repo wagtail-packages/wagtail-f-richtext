@@ -6,7 +6,6 @@ from setuptools import find_packages, setup
 
 from wagtail_f_richtext import __version__
 
-
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
@@ -16,7 +15,7 @@ setup(
     version=__version__,
     description="A replacement for the Wagtail richtext filter to use with a css framework.",
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     author="Nick Moreton",
     author_email="nickmoreton@me.com",
     url="https://github.com/nickmoreton/wagtail-f-richtext",
