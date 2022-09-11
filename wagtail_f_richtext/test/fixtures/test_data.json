@@ -1,111 +1,111 @@
 [
-{
-  "model": "wagtailcore.site",
-  "pk": 1,
-  "fields": {
-    "hostname": "localhost",
-    "port": 80,
-    "site_name": "",
-    "root_page": 2,
-    "is_default_site": true
+  {
+    "model": "wagtailcore.site",
+    "pk": 1,
+    "fields": {
+      "hostname": "localhost",
+      "port": 80,
+      "site_name": "",
+      "root_page": 2,
+      "is_default_site": true
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 1,
+    "fields": {
+      "path": "0001",
+      "depth": 1,
+      "numchild": 1,
+      "translation_key": "91af0732-71e0-40a0-9f84-93d693dc0d11",
+      "locale": 1,
+      "title": "Root",
+      "draft_title": "Root",
+      "slug": "root",
+      "content_type": [
+        "wagtailcore",
+        "page"
+      ],
+      "live": true,
+      "has_unpublished_changes": false,
+      "url_path": "/"
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 2,
+    "fields": {
+      "path": "00010001",
+      "depth": 2,
+      "numchild": 2,
+      "translation_key": "72c5dff3-3069-4927-b5d0-a1fcf5d4d296",
+      "locale": 1,
+      "title": "Welcome to your new Wagtail site!",
+      "draft_title": "Welcome to your new Wagtail site!",
+      "slug": "home",
+      "content_type": [
+        "wagtailcore",
+        "page"
+      ],
+      "live": true,
+      "has_unpublished_changes": false,
+      "url_path": "/home/"
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 3,
+    "fields": {
+      "path": "000100010001",
+      "depth": 3,
+      "numchild": 0,
+      "translation_key": "ea0c3b74-b4ec-4137-ad0f-4ec967388b94",
+      "locale": 1,
+      "title": "f-rich-text-page",
+      "draft_title": "f-rich-text-page",
+      "slug": "f-rich-text-page",
+      "content_type": [
+        "example",
+        "frichtextpage"
+      ],
+      "live": true,
+      "has_unpublished_changes": false,
+      "url_path": "/home/f-rich-text-page/"
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 4,
+    "fields": {
+      "path": "000100010002",
+      "depth": 3,
+      "numchild": 0,
+      "translation_key": "3e019869-8376-43be-9c8f-3b488a858a0e",
+      "locale": 1,
+      "title": "f-rich-text-streamfield",
+      "draft_title": "f-rich-text-streamfield",
+      "slug": "f-rich-text-streamfield",
+      "content_type": [
+        "example",
+        "frichtextpagestreamfield"
+      ],
+      "live": true,
+      "has_unpublished_changes": false,
+      "url_path": "/home/f-rich-text-streamfield/"
+    }
+  },
+  {
+    "model": "example.frichtextpagestreamfield",
+    "pk": 4,
+    "fields": {
+      "body": "[{\"type\": \"rich_text\", \"value\": \"<h2 data-block-key=\\\"sxvyu\\\">Heading 2</h2><h3 data-block-key=\\\"7nmh2\\\">Heading 3</h3><h4 data-block-key=\\\"3nihe\\\">Heading 4</h4><p data-block-key=\\\"edmb9\\\">Paragraph. Paragraph. Paragraph. Paragraph. Paragraph.</p><ul><li data-block-key=\\\"2hr2r\\\">ul lits item</li><li data-block-key=\\\"3bs4o\\\">ul lits item</li><li data-block-key=\\\"bca1r\\\">ul lits item</li></ul><ol><li data-block-key=\\\"b7tar\\\">ol list item</li><li data-block-key=\\\"m04d\\\">ol list item</li><li data-block-key=\\\"dckfj\\\">ol list item</li></ol><p data-block-key=\\\"fi5v9\\\"><b>Bold</b></p><p data-block-key=\\\"c4e9p\\\"><i>Italic</i></p>\", \"id\": \"928f25bb-6663-4834-a8b7-c972ac0308e5\"}]"
+    }
+  },
+  {
+    "model": "example.frichtextpage",
+    "pk": 3,
+    "fields": {
+      "body": "<h2 data-block-key=\"mswlu\">Heading 2</h2><h3 data-block-key=\"7aotm\">Heading 3</h3><h4 data-block-key=\"e22i7\">Heading 4</h4><p data-block-key=\"3f266\">Paragraph. Paragraph. Paragraph. Paragraph. Paragraph.</p><ul><li data-block-key=\"auoch\">ul lits item</li><li data-block-key=\"ahsmo\">ul lits item</li><li data-block-key=\"2b5kj\">ul lits item</li></ul><ol><li data-block-key=\"8ljtv\">ol list item</li><li data-block-key=\"2hf8o\">ol list item</li><li data-block-key=\"1ahfc\">ol list item</li></ol><p data-block-key=\"d74r9\"><b>Bold</b></p><p data-block-key=\"al3hf\"><i>Italic</i></p>"
+    }
   }
-},
-{
-  "model": "wagtailcore.page",
-  "pk": 1,
-  "fields": {
-    "path": "0001",
-    "depth": 1,
-    "numchild": 1,
-    "translation_key": "91af0732-71e0-40a0-9f84-93d693dc0d11",
-    "locale": 1,
-    "title": "Root",
-    "draft_title": "Root",
-    "slug": "root",
-    "content_type": [
-      "wagtailcore",
-      "page"
-    ],
-    "live": true,
-    "has_unpublished_changes": false,
-    "url_path": "/"
-  }
-},
-{
-  "model": "wagtailcore.page",
-  "pk": 2,
-  "fields": {
-    "path": "00010001",
-    "depth": 2,
-    "numchild": 2,
-    "translation_key": "72c5dff3-3069-4927-b5d0-a1fcf5d4d296",
-    "locale": 1,
-    "title": "Welcome to your new Wagtail site!",
-    "draft_title": "Welcome to your new Wagtail site!",
-    "slug": "home",
-    "content_type": [
-      "wagtailcore",
-      "page"
-    ],
-    "live": true,
-    "has_unpublished_changes": false,
-    "url_path": "/home/"
-  }
-},
-{
-  "model": "wagtailcore.page",
-  "pk": 3,
-  "fields": {
-    "path": "000100010001",
-    "depth": 3,
-    "numchild": 0,
-    "translation_key": "ea0c3b74-b4ec-4137-ad0f-4ec967388b94",
-    "locale": 1,
-    "title": "f-rich-text-page",
-    "draft_title": "f-rich-text-page",
-    "slug": "f-rich-text-page",
-    "content_type": [
-      "example",
-      "frichtextpage"
-    ],
-    "live": true,
-    "has_unpublished_changes": false,
-    "url_path": "/home/f-rich-text-page/"
-  }
-},
-{
-  "model": "wagtailcore.page",
-  "pk": 4,
-  "fields": {
-    "path": "000100010002",
-    "depth": 3,
-    "numchild": 0,
-    "translation_key": "3e019869-8376-43be-9c8f-3b488a858a0e",
-    "locale": 1,
-    "title": "f-rich-text-streamfield",
-    "draft_title": "f-rich-text-streamfield",
-    "slug": "f-rich-text-streamfield",
-    "content_type": [
-      "example",
-      "frichtextpagestreamfield"
-    ],
-    "live": true,
-    "has_unpublished_changes": false,
-    "url_path": "/home/f-rich-text-streamfield/"
-  }
-},
-{
-  "model": "example.frichtextpagestreamfield",
-  "pk": 4,
-  "fields": {
-    "body": "[{\"type\": \"rich_text\", \"value\": \"<h2 data-block-key=\\\"sxvyu\\\">Heading 2</h2><h3 data-block-key=\\\"7nmh2\\\">Heading 3</h3><h4 data-block-key=\\\"3nihe\\\">Heading 4</h4><p data-block-key=\\\"edmb9\\\">Paragraph. Paragraph. Paragraph. Paragraph. Paragraph.</p><ul><li data-block-key=\\\"2hr2r\\\">ul lits item</li><li data-block-key=\\\"3bs4o\\\">ul lits item</li><li data-block-key=\\\"bca1r\\\">ul lits item</li></ul><ol><li data-block-key=\\\"b7tar\\\">ol list item</li><li data-block-key=\\\"m04d\\\">ol list item</li><li data-block-key=\\\"dckfj\\\">ol list item</li></ol><p data-block-key=\\\"fi5v9\\\"><b>Bold</b></p><p data-block-key=\\\"c4e9p\\\"><i>Italic</i></p>\", \"id\": \"928f25bb-6663-4834-a8b7-c972ac0308e5\"}]"
-  }
-},
-{
-  "model": "example.frichtextpage",
-  "pk": 3,
-  "fields": {
-    "body": "<h2 data-block-key=\"mswlu\">Heading 2</h2><h3 data-block-key=\"7aotm\">Heading 3</h3><h4 data-block-key=\"e22i7\">Heading 4</h4><p data-block-key=\"3f266\">Paragraph. Paragraph. Paragraph. Paragraph. Paragraph.</p><ul><li data-block-key=\"auoch\">ul lits item</li><li data-block-key=\"ahsmo\">ul lits item</li><li data-block-key=\"2b5kj\">ul lits item</li></ul><ol><li data-block-key=\"8ljtv\">ol list item</li><li data-block-key=\"2hf8o\">ol list item</li><li data-block-key=\"1ahfc\">ol list item</li></ol><p data-block-key=\"d74r9\"><b>Bold</b></p><p data-block-key=\"al3hf\"><i>Italic</i></p>"
-  }
-}
 ]

@@ -100,7 +100,9 @@ def parse_internal(html):
                 element.decompose()
 
     # Append a clear float div to the end of the content
-    soup.append(soup.new_tag("div", style="clear: both;")) if config.get("append_clear_float") else None
+    soup.append(soup.new_tag("div", style="clear: both;")) if config.get(
+        "append_clear_float"
+    ) else None
 
     return mark_safe(f'<div class="{css_classes}">{str(soup)}</div>')
 

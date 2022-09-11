@@ -1,0 +1,18 @@
+{% load frichtext_tags %}
+
+<h2 class="margin-bottom-md">{% verbatim %}{{ value }}{% endverbatim %}</h2>
+<div class="container margin-bottom-md border border-2 test-raw">
+    {{ value }}
+</div>
+<h2 class="margin-bottom-md">{% verbatim %}{{ value|f_richtext }}{% endverbatim %}</h2>
+<div class="container margin-bottom-md border border-2 test-frichtext">
+    {{ value|f_richtext }}
+</div>
+<h2 class="margin-bottom-md">{% verbatim %}{{ value|f_richtext:"external" }}{% endverbatim %}</h2>
+<div class="container margin-bottom-md border border-2 test-frichtext-external">
+    {{ value|f_richtext:"external" }}
+</div>
+<h2 class="margin-bottom-md">{% verbatim %}{{ value|f_richtext:"internal" }}{% endverbatim %}</h2>
+<div class="container margin-bottom-md border border-2 test-frichtext-internal">
+    {{ value|f_richtext:"internal" }}
+</div>
