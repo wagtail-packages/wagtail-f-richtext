@@ -4,19 +4,19 @@
 
 An alternative Wagtail `richtext` filter.
 
-Parse the HTML content from a RichTextField or RichTextBlock in the same way that the Wagtail richtext filter works.
+Parse the HTML content from a RichText field or RichText Stream Field Block in the same way that the Wagtail richtext filter works.
 
-Optionally add an argument to specify either in-line styles or css framework classes to be injected to style the inner content.
+Add an argument to specify either in-line styles or css classes to be injected to style the inner html content.
 
-Use your own custom css classes or one the many other utility-first CSS frameworks like: (in no particular preference or order)
+Use your own custom css classes or one the many other utility-first CSS frameworks like:
 
-- [CodyHouse](https://codyhouse.co)
 - [Bulma](https://bulma.io)
-- [Tailwind](https://tailwindcss.com)
+- [CodyHouse](https://codyhouse.co)
 - [Tachyons](https://tachyons.io)
+- [Tailwind](https://tailwindcss.com)
 - other frameworks are available :)
 
-## Setup/Installation
+## Setup / Installation
 
 Install the package into your python environment.
 
@@ -24,13 +24,19 @@ Install the package into your python environment.
 pip install wagtail-f-richext
 ```
 
-### Using it with a RichTextField
+Add the package to your INSTALLED_APS
+
+```python
+"wagtail_f_richtext"
+```
+
+### Using it with a RichText field
 
 - `{{ page.body|f_richtext }}` will work just like the Wagtail provided filter
 - `{{ page.body|f_richtext:"external" }}` will add classes to the HTML tags
 - `{{ page.body|f_richtext:"internal" }}` will add inline styles to the HTML tags
 
-### Using it with a RichTextField as a StreamField block
+### Using it with a RichText field in a Stream Field Block
 
 - `{{ value|f_richtext }}` will work just like the Wagtail provided filter
 - `{{ value|f_richtext:"external" }}` will add classes to the HTML tags
@@ -41,6 +47,8 @@ pip install wagtail-f-richext
 Without any configuration added to your site settings nothing will be parsed so you need to add one or both of `F_RICHTEXT_INTERNAL_CONFIG` or `F_RICHTEXT_EXTERNAL_CONFIG`
 
 ### Example for adding inline styles
+
+Use this to add inline styles attributes to the HTML tags.
 
 ```python
 F_RICHTEXT_INTERNAL_CONFIG = {
@@ -74,7 +82,7 @@ F_RICHTEXT_INTERNAL_CONFIG = {
 
 ### Example for adding classes to HTML tags
 
-Use this to inject css utility-framework styles into the rendered HTML
+Use this to add css classes to the HTML tags.
 
 ```python
 F_RICHTEXT_EXTERNAL_CONFIG = {
@@ -107,8 +115,14 @@ F_RICHTEXT_EXTERNAL_CONFIG = {
 }
 ```
 
-View [conf.py](/example/conf.py) for more examples. You can add just a few or really go to town if you need to.
+## Examples
 
-*For the moment the functions responsible for catching the keys of your configuration are hard coded. In the next version I will be providing a way for you to register your own functions for this.*
+View the [Sandbox](/sandbox/) app for detailed example usage.
 
-View [Template Tag and Functions](/wagtail_f_richtext/templatetags/frichtext_tags.py)
+The sandbox app is fully configured and can be run with:
+
+```bash
+poetry install
+poetry shell
+make run
+```
