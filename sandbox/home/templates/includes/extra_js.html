@@ -1,0 +1,7 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.6/beautify-html.min.js"></script>
+<script>
+    var beautified = document.getElementsByClassName('beautify');
+    for (var i = 0; i < beautified.length; i++) {
+        beautified[i].parentNode.getElementsByTagName('textarea')[0].innerHTML = html_beautify(beautified[i].innerHTML);;
+    }
+</script>

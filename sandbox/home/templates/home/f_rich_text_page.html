@@ -1,25 +1,48 @@
 {% extends "base.html" %}
-{% load frichtext_tags wagtailcore_tags %}
+{% load frichtext_tags wagtailcore_tags static %}
 
 {% block content %}
-    <h2 class="margin-bottom-md">{% verbatim %}{{ page.body }}{% endverbatim %}</h2>
-    <div class="container margin-bottom-md border border-2 test-raw">
-        {{ page.body }}
-    </div>
-    <h2 class="margin-bottom-md">{% verbatim %}{{ page.body|richtext }}{% endverbatim %}</h2>
-    <div class="container margin-bottom-md border border-2 test-html">
-        {{ page.body|richtext }}
-    </div>
-    <h2 class="margin-bottom-md">{% verbatim %}{{ page.body|f_richtext }}{% endverbatim %}</h2>
-    <div class="container margin-bottom-md border border-2 test-frichtext">
-        {{ page.body|f_richtext }}
-    </div>
-    <h2 class="margin-bottom-md">{% verbatim %}{{ page.body|f_richtext:"external" }}{% endverbatim %}</h2>
-    <div class="container margin-bottom-md border border-2 test-frichtext-external">
-        {{ page.body|f_richtext:"external" }}
-    </div>
-    <h2 class="margin-bottom-md">{% verbatim %}{{ page.body|f_richtext:"internal" }}{% endverbatim %}</h2>
-    <div class="container margin-bottom-md border border-2 test-frichtext-internal">
-        {{ page.body|f_richtext:"internal" }}
-    </div>
-{% endblock content %}
+    {% include "includes/intro.html" with type="rich text field" %}
+    <ul class="text-component">
+        <li>
+            <pre>{% verbatim %}{{ page.body|richtext }}{% endverbatim %}</pre>
+            <p>Using the wagtail richtext filter:</p>
+            <div class="beautify">{{ page.body|richtext }}</div>
+            <textarea cols="140" rows="8"></textarea>
+            {% comment %} {{ page.body|richtext }} {% endcomment %}
+            <hr />
+        </li>
+        <li>
+            <pre>{% verbatim %}{{ page.body|f_richtext }}{% endverbatim %}</pre>
+            <p>Using the frichtext filter: no arguments are passed so it works the same as the richtext filter</p>
+            <div class="beautify">{{ page.body|f_richtext }}</div>
+            <textarea cols="140" rows="8"></textarea><br />
+            {% comment %} {{ page.body|f_richtext }} {% endcomment %}
+            <hr />
+        </li>
+        <li>
+            <pre>{% verbatim %}{{ page.body|f_richtext:"external" }}{% endverbatim %}</pre>
+            <p>Using the frichtext filter: passing the "external" argument which adds classes defined in the config F_RICHTEXT_EXTERNAL_CONFIG</p>
+            <div class="beautify">{{ page.body|f_richtext:"external" }}</div>
+            <textarea cols="140" rows="8"></textarea><br />
+            {% comment %} {{ page.body|f_richtext:"external" }} {% endcomment %}
+            <hr />
+        </li>
+        <li>
+            <pre>{% verbatim %}{{ page.body|f_richtext:"internal" }}{% endverbatim %}</pre>
+            <p>Using the frichtext filter: passing the "internal" argument which adds inline styles defined in the config F_RICHTEXT_INTERNAL_CONFIG</p>
+            <div class="beautify">{{ page.body|f_richtext:"internal" }}</div>
+            <textarea cols="140" rows="8"></textarea><br />
+            {% comment %} {{ page.body|f_richtext:"internal" }} {% endcomment %}
+            <hr />
+        </li>
+    </ul>
+{% endblock %}
+
+{% block extra_js %}
+    {% include "includes/extra_js.html" %}
+{% endblock %}
+
+{% block extra_css %}
+    {% include "includes/extra_css.html" %}
+{% endblock %}

@@ -1,18 +1,36 @@
 {% load frichtext_tags %}
 
-<h2 class="margin-bottom-md">{% verbatim %}{{ value }}{% endverbatim %}</h2>
-<div class="container margin-bottom-md border border-2 test-raw">
-    {{ value }}
-</div>
-<h2 class="margin-bottom-md">{% verbatim %}{{ value|f_richtext }}{% endverbatim %}</h2>
-<div class="container margin-bottom-md border border-2 test-frichtext">
-    {{ value|f_richtext }}
-</div>
-<h2 class="margin-bottom-md">{% verbatim %}{{ value|f_richtext:"external" }}{% endverbatim %}</h2>
-<div class="container margin-bottom-md border border-2 test-frichtext-external">
-    {{ value|f_richtext:"external" }}
-</div>
-<h2 class="margin-bottom-md">{% verbatim %}{{ value|f_richtext:"internal" }}{% endverbatim %}</h2>
-<div class="container margin-bottom-md border border-2 test-frichtext-internal">
-    {{ value|f_richtext:"internal" }}
-</div>
+<ul class="text-component">
+    <li>
+        <pre>{% verbatim %}{{ value }}{% endverbatim %}</pre>
+        <p>Using the wagtail richtext filter:</p>
+        <div class="beautify">{{ value }}</div>
+        <textarea cols="140" rows="8"></textarea>
+        {% comment %} {{ page.body|richtext }} {% endcomment %}
+        <hr />
+    </li>
+    <li>
+        <pre>{% verbatim %}{{ value|f_richtext }}{% endverbatim %}</pre>
+        <p>Using the wagtail richtext filter and the safe filter:</p>
+        <div class="beautify">{{ value|f_richtext }}</div>
+        <textarea cols="140" rows="8"></textarea>
+        {% comment %} {{ value|f_richtext }} {% endcomment %}
+        <hr />
+    </li>
+    <li>
+        <pre>{% verbatim %}{{ value|f_richtext:"external" }}{% endverbatim %}</pre>
+        <p>Using the wagtail richtext filter, the safe filter and the beautify filter:</p>
+        <div class="beautify">{{ value|f_richtext:"external" }}</div>
+        <textarea cols="140" rows="8"></textarea>
+        {% comment %} {{ value|f_richtext:"external" }} {% endcomment %}
+        <hr />
+    </li>
+    <li>
+        <pre>{% verbatim %}{{ value|f_richtext:"internal" }}{% endverbatim %}</pre>
+        <p>Using the wagtail richtext filter, the safe filter, the beautify filter and the escape filter:</p>
+        <div class="beautify">{{  value|f_richtext:"internal" }}</div>
+        <textarea cols="140" rows="8"></textarea>
+        {% comment %} {{  value|f_richtext:"internal" }} {% endcomment %}
+        <hr />
+    </li>
+</ul>

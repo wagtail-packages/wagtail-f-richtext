@@ -1,8 +1,18 @@
 {% extends "base.html" %}
-{% load frichtext_tags wagtailcore_tags %}
+{% load frichtext_tags wagtailcore_tags static %}
 
 {% block content %}
-    {% for block in page.body %}
-        {% include_block block %}
-    {% endfor %}
+    {% include "includes/intro.html" with type="streamfield" %}
+    <h1>Sample Tag Ouptuts (streamfield richtext block)</h1>
+    <p>This outputs the html text string, formatted for readability, depending on which template tag has been used.</p>
+    <i>The HTML in this sample is only for display purposes, you only need to use the template tag in your own templates.</i>
+    {% include_block page.body %}
 {% endblock content %}
+
+{% block extra_js %}
+    {% include "includes/extra_js.html" %}
+{% endblock %}
+
+{% block extra_css %}
+    {% include "includes/extra_css.html" %}
+{% endblock %}

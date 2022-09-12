@@ -203,7 +203,8 @@ F_RICHTEXT_INTERNAL_CONFIG = {
 # copyhouse framework settings
 F_RICHTEXT_EXTERNAL_CONFIG = {
     "add_classes": {
-        "h2": "title",
+        "h1": "heading-1",
+        "h2": "heading-2",
         "ul": "list list--ul",
         "ol": "list list--ol",
         "a": "color-contrast-higher",
