@@ -11,6 +11,24 @@ ALLOWED_HOSTS = ["*"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+# try:
+#     from .framework_codyhouse import *  # noqa
+# except ImportError:
+#     pass
+
+# try:
+#     from .framework_bulma import *  # noqa
+# except ImportError:
+#     pass
+
+# try:
+#     from .framework_tachyons import *  # noqa
+# except ImportError:
+#     pass
+try:
+    from .framework_tailwind import *  # noqa
+except ImportError:
+    pass
 
 try:
     from .local import *  # noqa

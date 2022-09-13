@@ -1,3 +1,4 @@
+from django.conf import settings
 from wagtail.admin.panels import FieldPanel
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
@@ -14,6 +15,14 @@ class FRichTextPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel("body"),
     ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        if hasattr(settings, "CSS_CDN_URL"):
+            context["css_cdn_url"] = settings.CSS_CDN_URL
+        else:
+            context["css_cdn_url"] = ""
+        return context
 
 
 class FRichTextPageStreamField(Page):
@@ -32,3 +41,11 @@ class FRichTextPageStreamField(Page):
     content_panels = Page.content_panels + [
         FieldPanel("body"),
     ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        if hasattr(settings, "CSS_CDN_URL"):
+            context["css_cdn_url"] = settings.CSS_CDN_URL
+        else:
+            context["css_cdn_url"] = ""
+        return context

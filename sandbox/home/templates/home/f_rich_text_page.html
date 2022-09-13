@@ -25,7 +25,7 @@
             <p>Using the frichtext filter: passing the "external" argument which adds classes defined in the config F_RICHTEXT_EXTERNAL_CONFIG</p>
             <div class="beautify">{{ page.body|f_richtext:"external" }}</div>
             <textarea cols="140" rows="8"></textarea><br />
-            {% comment %} {{ page.body|f_richtext:"external" }} {% endcomment %}
+            {{ page.body|f_richtext:"external" }}
             <hr />
         </li>
         <li>
