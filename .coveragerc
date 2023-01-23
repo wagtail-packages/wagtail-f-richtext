@@ -1,0 +1,4 @@
+[run]
+branch = True
+include = wagtail_f_richtext/*
+omit = */migrations/*,*/test/*
