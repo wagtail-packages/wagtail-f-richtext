@@ -46,9 +46,50 @@ Any css framework styles will need to be installed before you will see any style
 
 *You can use it without a parameter `{{ page.body|f_richtext }}` and it will work just like the Wagtail core provided filter (not required)*
 
+Sample `framework` rendered
+
+```html
+<div class="text-component">
+    <p data-block-key="92eli">A paragraph <b class="font-bold">Vulputate Vestibulum</b> <i class="font-italic">Commodo</i></p>
+    <h2 class="heading-2" data-block-key="fkden">Heading 2</h2>
+    <ul class="list list--ul">
+        <li data-block-key="fe5cv">UL List Item 1</li>
+        <li data-block-key="6ort3">UL List Item 2</li>
+    </ul>
+    <ol class="list list--ol">
+        <li data-block-key="d5s3r">OL List Item 1</li>
+        <li data-block-key="5l47j">OL List Item 2</li>
+    </ol>
+    <img alt="IMG_4511" class="f-richtext-image f-richtext-image--right" height="375" src="/media/images/IMG_4511.width-500.jpg" width="500">
+    <div style="clear: both;"></div>
+</div>
+```
+
+Sample `inline_styles` rendered
+
+```html
+<div style="overflow:hidden;">
+    <p data-block-key="92eli" style="margin-bottom: 1em;">A paragraph <b style="font-weight: bold;">Vulputate Vestibulum</b> <i style="font-style: italic;">Commodo</i></p>
+    <h2 data-block-key="fkden" style="margin-bottom: 1em;">Heading 2</h2>
+    <ul style="float: none; clear: both; list-style: disc; margin-left: 2em; margin-bottom: 1em;">
+        <li data-block-key="fe5cv">UL List Item 1</li>
+        <li data-block-key="6ort3">UL List Item 2</li>
+    </ul>
+    <ol style="float: none; clear: both; list-style: decimal; margin-left: 2em; margin-bottom: 1em;">
+        <li data-block-key="d5s3r">OL List Item 1</li>
+        <li data-block-key="5l47j">OL List Item 2</li>
+    </ol>
+    <img alt="IMG_4511" class="richtext-image right" height="375" src="/media/images/IMG_4511.width-500.jpg" style="float: right; margin-left: 1rem; margin-right: 0; margin-bottom: 1rem; height: auto;" width="500">
+    <div style="clear: both;"></div>
+</div>
+```
+
 ## Configuration
 
-You need to add one or both of `F_RICHTEXT_FRAMEWORK_CONFIG` or `F_RICHTEXT_INLINE_CONFIG` to your apps settings.
+You need to add one or both of these settings to your apps settings.
+
+- `F_RICHTEXT_FRAMEWORK_CONFIG`
+- `F_RICHTEXT_INLINE_CONFIG`
 
 ### Example for adding classes to HTML tags
 
@@ -149,11 +190,10 @@ F_RICHTEXT_PARSER_RUNNER="the.dotted.path.to.your.own.function"
 
 ## Contributing
 
-The test app can be run easily to develop your contribution.
+The test app can be run to develop your contribution.
 
-Fork the repo and clone it to your computer.
-
-Change to the folder where you cloned it to.
+1. Fork the repo and clone it to your computer.
+2. Change to the folder where you cloned it to.
 
 With [poetry](https://python-poetry.org) installed run:
 
@@ -169,7 +209,7 @@ Then you can view the app at <http://localhost:8000> and login to the admin at <
 
 The admin account login is Username: `admin` Password: `password`
 
-Run the test:
+Run the tests:
 
 ```bash
 make test
