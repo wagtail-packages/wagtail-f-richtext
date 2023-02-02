@@ -12,22 +12,19 @@ import os
 
 from wagtail import VERSION as WAGTAIL_VERSION
 
-# from temp.conf import *
-
 # Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
-PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = os.path.dirname(PROJECT_DIR)
+TESTAPP_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/stable/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "c6u0-9c!7nilj_ysatsda0(f@e_2mws2f!6m0n^o*4#*q#kzp)"
+SECRET_KEY = "development-only-secret-key"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "testserver"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -40,20 +37,11 @@ else:
 INSTALLED_APPS = [
     "wagtail_f_richtext",
     "wagtail_f_richtext.test",
-    "wagtail.contrib.search_promotions",
-    "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
-    "wagtail.embeds",
     "wagtail.users",
-    "wagtail.snippets",
     "wagtail.documents",
     "wagtail.images",
-    "wagtail.search",
     "wagtail.admin",
-    "wagtail.api.v2",
-    "wagtail.contrib.modeladmin",
-    "wagtail.contrib.routable_page",
-    "wagtail.contrib.styleguide",
     "wagtail.sites",
     WAGTAIL,
     "taggit",
@@ -100,12 +88,12 @@ TEMPLATES = [
 # Using DatabaseCache to make sure that the cache is cleared between tests.
 # This prevents false-positives in some wagtail core tests where we are
 # changing the 'wagtail_root_paths' key which may cause future tests to fail.
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.db.DatabaseCache",
-        "LOCATION": "cache",
-    }
-}
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.db.DatabaseCache",
+#         "LOCATION": "cache",
+#     }
+# }
 
 
 # don't use the intentionally slow default password hasher
@@ -118,7 +106,7 @@ PASSWORD_HASHERS = ("django.contrib.auth.hashers.MD5PasswordHasher",)
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "NAME": os.path.join(TESTAPP_DIR, "db.sqlite3"),
     }
 }
 
@@ -158,12 +146,15 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-STATICFILES_DIRS = [os.path.join(PROJECT_DIR, "static")]
+STATICFILES_DIRS = [
+    os.path.join(TESTAPP_DIR, "static"),
+]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "test-static")
+# STATIC_ROOT = os.path.join(TESTAPP_DIR, "static")
 STATIC_URL = "/static/"
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "test-media")
+MEDIA_ROOT = os.path.join(TESTAPP_DIR, "media")
+MEDIA_URL = "/media/"
 
 
 # Wagtail settings
@@ -171,3 +162,69 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "test-media")
 WAGTAIL_SITE_NAME = "Wagtail F Richtext test site"
 
 WAGTAILADMIN_BASE_URL = "http://localhost:8000/admin"
+
+CSS_CDN_URL = "https://unpkg.com/codyhouse-framework/main/assets/css/style.min.css"
+
+# FRAMEWORK STYLES
+F_RICHTEXT_FRAMEWORK_CONFIG = {
+    "classes": {
+        "h1": "heading-1",
+        "h2": "heading-2",
+        "ul": "list list--ul",
+        "ol": "list list--ol",
+        "a": "color-contrast-higher",
+        "b": "font-bold",
+        "i": "font-italic",
+    },
+    "wrapper_classes": [
+        "text-component",
+    ],
+    "alignment_classes": {
+        "richtext-image left": "f-richtext-image f-richtext-image--left",
+        "richtext-image right": "f-richtext-image f-richtext-image--right",
+        "richtext-image full-width": "margin: 1em 0; width: 100%; height: auto;",
+    },
+    "remove_empty_tags": [
+        "p",
+    ],
+    "append_clearfix": True,
+}
+
+# INTERNAL STYLES
+F_RICHTEXT_INLINE_CONFIG = {
+    "styles": {
+        "h1": "margin-bottom: 1em;",
+        "h2": "margin-bottom: 1em;",
+        "h3": "margin-bottom: 1em;",
+        "h4": "margin-bottom: 1em;",
+        "h5": "margin-bottom: 1em;",
+        "h6": "margin-bottom: 1em;",
+        "p": "margin-bottom: 1em;",
+        "ul": "float: none; clear: both; list-style: disc; margin-left: 2em; margin-bottom: 1em;",
+        "ol": "float: none; clear: both; list-style: decimal; margin-left: 2em; margin-bottom: 1em;",
+        "code": "font-family: monospace; background-color: #f5f5f5; padding: 0.25rem 0.5rem;",
+        "sub": "vertical-align: sub; font-size: smaller;",
+        "sup": "vertical-align: super; font-size: smaller;",
+        "div": "float: none; clear: both;",
+        "iframe": "max-width: 100%; width: 720px; height: 400px; margin-top: 1em; margin-bottom: 1em;",
+        "b": "font-weight: bold;",
+        "i": "font-style: italic;",
+    },
+    "wrapper_styles": [
+        "overflow:hidden;",
+    ],
+    "alignment_styles": {
+        "richtext-image left": "float: left; margin-right: 1rem; margin-left: 0; margin-bottom: 1rem; height: auto;",
+        "richtext-image right": "float: right; margin-left: 1rem; margin-right: 0; margin-bottom: 1rem; height: auto;",
+        "richtext-image full-width": "margin: 1em 0; width: 100%; height: auto;",
+    },
+    "remove_empty_tags": [
+        "p",
+    ],
+    "append_clearfix": True,
+}
+
+try:
+    from .gitpod_settings import *  # noqa
+except ImportError:
+    pass
