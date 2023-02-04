@@ -1,7 +1,7 @@
 {% load wagtailcore_tags %}
 
 <nav class="{{ classes }}">
-{% if not child_pages %}
+{% if not child_pages and not request.in_preview_panel %}
     <a href="/admin">Go to the admin and add some pages <br> Login with UN: admin PW: admin</a>
 {% endif %}
 
