@@ -2,15 +2,11 @@ tasks:
   - name: Setup dependencies and run app
     init: |
       poetry export -f requirements.txt --output requirements.gitpod --without-hashes
-      echo 'CSRF_TRUSTED_ORIGINS = ["https://*.gitpod.io"]' >> wagtail_f_richtext/test/gitpod_settings.py
+      echo 'CSRF_TRUSTED_ORIGINS = ["https://*.gitpod.io"]' >> tests/testapp/gitpod_settings.py
     command: |
       pip install -U pip
       pip install -r requirements.gitpod
-      python testmanage.py migrate
-      python testmanage.py loaddata wagtail_f_richtext/test/fixtures/data.json
-      mkdir -p wagtail_f_richtext/test/media/original_images
-      chmod -R 775 wagtail_f_richtext/test/media/original_images
-      cp -r wagtail_f_richtext/test/fixtures/original_images/* wagtail_f_richtext/test/media/original_images/
+      python manage.py migrate
       python testmanage.py runserver 0.0.0.0:8000
 
 ports:
