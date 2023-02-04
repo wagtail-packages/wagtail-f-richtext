@@ -17,12 +17,12 @@ class Migration(migrations.Migration):
     if WAGTAIL_VERSION >= (3, 0):
         dependencies = [
             ("wagtailcore", "0069_log_entry_jsonfield"),
-            ("wagtail_f_richtext_test", "0002_create_homepage"),
+            ("tests_testapp", "0002_create_homepage"),
         ]
     else:
         dependencies = [
             ("wagtailcore", "0066_collection_management_permissions"),
-            ("wagtail_f_richtext_test", "0002_create_homepage"),
+            ("tests_testapp", "0002_create_homepage"),
         ]
 
     if WAGTAIL_VERSION >= (3, 0):
