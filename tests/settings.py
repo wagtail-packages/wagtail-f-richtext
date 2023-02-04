@@ -6,9 +6,7 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 SECRET_KEY = "development-only-secret-key"
-
 DEBUG = True
-
 ALLOWED_HOSTS = ["*"]
 
 if WAGTAIL_VERSION >= (3, 0):
@@ -17,15 +15,15 @@ else:
     WAGTAIL = "wagtail.core"
 
 INSTALLED_APPS = [
-    "wagtail_f_richtext",
     "tests.testapp",
+    "wagtail_f_richtext",
     "wagtail.contrib.redirects",
     "wagtail.users",
     "wagtail.documents",
     "wagtail.images",
     "wagtail.admin",
     "wagtail.sites",
-    WAGTAIL,
+    "wagtail" if WAGTAIL_VERSION >= (3, 0) else "wagtail.core",
     "taggit",
     "rest_framework",
     "django.contrib.admin",
@@ -71,18 +69,24 @@ PASSWORD_HASHERS = ("django.contrib.auth.hashers.MD5PasswordHasher",)
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "NAME": os.path.join(PROJECT_DIR, "db.sqlite3"),
     }
 }
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
-]
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.db.DatabaseCache",
+        "LOCATION": "cache",
+    }
+}
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+#     },
+#     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+#     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+#     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
+# ]
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
@@ -95,22 +99,14 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(PROJECT_DIR, "static")
 STATIC_URL = "/static/"
-
 MEDIA_ROOT = os.path.join(PROJECT_DIR, "media")
 MEDIA_URL = "/media/"
 
-
-# Wagtail settings
-
-WAGTAIL_SITE_NAME = "Wagtail F Richtext test site"
-
-WAGTAILADMIN_BASE_URL = "http://localhost:8000/admin"
+WAGTAIL_SITE_NAME = "Wagtail F Richtext test app"
+WAGTAILADMIN_BASE_URL = "http://localhost:8000"
 
 CSS_CDN_URL = "https://unpkg.com/codyhouse-framework/main/assets/css/style.min.css"
 

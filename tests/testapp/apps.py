@@ -2,6 +2,6 @@ from django.apps import AppConfig
 
 
 class WagtailFRichtextTestAppConfig(AppConfig):
-    label = "tests_testapp"
+    label = "wagtail_f_richtext_tests"
     name = "tests.testapp"
-    verbose_name = "Wagtail F Richtext tests"
+    verbose_name = "Wagtail F Richtext test app"

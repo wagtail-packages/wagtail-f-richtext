@@ -7,7 +7,7 @@ def create_homepage(apps, schema_editor):
     ContentType = apps.get_model("contenttypes.ContentType")
     Page = apps.get_model("wagtailcore.Page")
     Site = apps.get_model("wagtailcore.Site")
-    HomePage = apps.get_model("tests_testapp.HomePage")
+    HomePage = apps.get_model("wagtail_f_richtext_tests.HomePage")
 
     # Delete the default homepage
     # If migration is run multiple times, it may have already been deleted
@@ -15,7 +15,7 @@ def create_homepage(apps, schema_editor):
 
     # Create content type for homepage model
     homepage_content_type, __ = ContentType.objects.get_or_create(
-        model="homepage", app_label="tests_testapp"
+        model="homepage", app_label="wagtail_f_richtext_tests"
     )
 
     # Create a new homepage
@@ -37,14 +37,16 @@ def create_homepage(apps, schema_editor):
 def remove_homepage(apps, schema_editor):
     # Get models
     ContentType = apps.get_model("contenttypes.ContentType")
-    HomePage = apps.get_model("tests_testapp.HomePage")
+    HomePage = apps.get_model("wagtail_f_richtext_tests.HomePage")
 
     # Delete the default homepage
     # Page and Site objects CASCADE
     HomePage.objects.filter(slug="home", depth=2).delete()
 
     # Delete content type for homepage model
-    ContentType.objects.filter(model="homepage", app_label="tests_testapp").delete()
+    ContentType.objects.filter(
+        model="homepage", app_label="wagtail_f_richtext_tests"
+    ).delete()
 
 
 class Migration(migrations.Migration):
@@ -54,7 +56,7 @@ class Migration(migrations.Migration):
     ]
 
     dependencies = [
-        ("tests_testapp", "0001_initial"),
+        ("wagtail_f_richtext_tests", "0001_initial"),
     ]
 
     operations = [
