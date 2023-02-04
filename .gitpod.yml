@@ -2,7 +2,7 @@ tasks:
   - name: Setup dependencies and run app
     init: |
       poetry export -f requirements.txt --output requirements.gitpod --without-hashes
-      echo 'CSRF_TRUSTED_ORIGINS = ["https://*.gitpod.io"]' >> tests/testapp/gitpod_settings.py
+      echo 'CSRF_TRUSTED_ORIGINS = ["https://*.gitpod.io"]' >> tests/gitpod_settings.py
     command: |
       pip install -U pip
       pip install -r requirements.gitpod
