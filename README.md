@@ -215,3 +215,9 @@ python manage.py test
 ```
 
 You can use shortcuts in the [Makefile](./Makefile) to run the above commands.
+
+```bash
+make setup
+```
+
+will run all the above initial commands and creates a superuser with login credentials Username: `admin` Password: `admin`

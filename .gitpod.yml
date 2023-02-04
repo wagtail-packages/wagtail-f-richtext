@@ -7,7 +7,8 @@ tasks:
       pip install -U pip
       pip install -r requirements.gitpod
       python manage.py migrate
-      python testmanage.py runserver 0.0.0.0:8000
+      echo "from django.contrib.auth import get_user_model; get_user_model().objects.create_superuser('admin', '', 'admin')" | python manage.py shell
+      python manage.py runserver 0.0.0.0:8000
 
 ports:
   - port: 8000
