@@ -1,6 +1,7 @@
 {% load wagtailcore_tags %}
 
 <nav class="{{ classes }}">
-    <a href="{% slugurl 'richtextfield' %}">RichTextField</a>
-    <a href="{% slugurl 'streamfield' %}">StreamField</a>
+{% for child in child_pages %}
+    <a href="{{ child.url }}" {% if child.url == self.url %}class="active"{% endif %}>{{ child.title }}</a>
+{% endfor %}
 </nav>
