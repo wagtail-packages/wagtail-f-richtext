@@ -1,33 +1,13 @@
-"""
-Django settings for temp project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/stable/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/stable/ref/settings/
-"""
-
 import os
 
 from wagtail import VERSION as WAGTAIL_VERSION
 
-# Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
-TESTAPP_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/stable/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "development-only-secret-key"
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = ["*"]
-
-
-# Application definition
 
 if WAGTAIL_VERSION >= (3, 0):
     WAGTAIL = "wagtail"
@@ -35,15 +15,15 @@ else:
     WAGTAIL = "wagtail.core"
 
 INSTALLED_APPS = [
+    "tests.testapp",
     "wagtail_f_richtext",
-    "wagtail_f_richtext.test",
     "wagtail.contrib.redirects",
     "wagtail.users",
     "wagtail.documents",
     "wagtail.images",
     "wagtail.admin",
     "wagtail.sites",
-    WAGTAIL,
+    "wagtail" if WAGTAIL_VERSION >= (3, 0) else "wagtail.core",
     "taggit",
     "rest_framework",
     "django.contrib.admin",
@@ -66,7 +46,7 @@ MIDDLEWARE = [
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
-ROOT_URLCONF = "wagtail_f_richtext.test.urls"
+ROOT_URLCONF = "tests.urls"
 
 TEMPLATES = [
     {
@@ -84,84 +64,30 @@ TEMPLATES = [
     }
 ]
 
-
-# Using DatabaseCache to make sure that the cache is cleared between tests.
-# This prevents false-positives in some wagtail core tests where we are
-# changing the 'wagtail_root_paths' key which may cause future tests to fail.
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django.core.cache.backends.db.DatabaseCache",
-#         "LOCATION": "cache",
-#     }
-# }
-
-
-# don't use the intentionally slow default password hasher
 PASSWORD_HASHERS = ("django.contrib.auth.hashers.MD5PasswordHasher",)
-
-
-# Database
-# https://docs.djangoproject.com/en/stable/ref/settings/#databases
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(TESTAPP_DIR, "db.sqlite3"),
+        "NAME": os.path.join(PROJECT_DIR, "db.sqlite3"),
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/stable/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
-]
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/stable/topics/i18n/
-
-LANGUAGE_CODE = "en-us"
-
-TIME_ZONE = "UTC"
-
-USE_I18N = True
-
-USE_L10N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/stable/howto/static-files/
-
 STATICFILES_FINDERS = [
-    "django.contrib.staticfiles.finders.FileSystemFinder",
+    # "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-STATICFILES_DIRS = [
-    os.path.join(TESTAPP_DIR, "static"),
-]
-
-# STATIC_ROOT = os.path.join(TESTAPP_DIR, "static")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(PROJECT_DIR, "static")
 STATIC_URL = "/static/"
-
-MEDIA_ROOT = os.path.join(TESTAPP_DIR, "media")
+MEDIA_ROOT = os.path.join(PROJECT_DIR, "media")
 MEDIA_URL = "/media/"
 
-
-# Wagtail settings
-
-WAGTAIL_SITE_NAME = "Wagtail F Richtext test site"
-
-WAGTAILADMIN_BASE_URL = "http://localhost:8000/admin"
+WAGTAIL_SITE_NAME = "Wagtail F Richtext test app"
+WAGTAILADMIN_BASE_URL = "http://localhost:8000"
 
 CSS_CDN_URL = "https://unpkg.com/codyhouse-framework/main/assets/css/style.min.css"
 

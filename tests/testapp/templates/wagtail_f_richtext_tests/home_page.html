@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block body_class %}template-styling-only home{% endblock %}
+
+{% block nav %}
+{% include "includes/nav.html" with classes="home" child_pages=child_pages %}
+{% endblock %}
+
+{% block content %}
+
+
+{% endblock content %}

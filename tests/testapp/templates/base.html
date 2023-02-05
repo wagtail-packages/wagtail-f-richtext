@@ -37,7 +37,7 @@
     {% wagtailuserbar %}
 
     {% block nav %}
-    {% include "includes/nav.html"  with classes="top" %}
+    {% comment %} {% include "includes/nav.html"  with classes="top" %} {% endcomment %}
     {% endblock %}
 
     {% block content %}{% endblock %}

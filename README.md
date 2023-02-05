@@ -200,17 +200,24 @@ With [poetry](https://python-poetry.org) installed run:
 ```bash
 poetry install
 poetry shell
-make migrate
-make loaddata
-make run
+# run the migrations, add an admin account and start the app
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
 ```
 
 Then you can view the app at <http://localhost:8000> and login to the admin at <http://localhost:8000/admin>
 
-The admin account login is Username: `admin` Password: `password`
-
 Run the tests:
 
 ```bash
-make test
+python manage.py test
 ```
+
+You can use shortcuts in the [Makefile](./Makefile) to run the above commands.
+
+```bash
+make setup
+```
+
+will run all the above initial commands and creates a superuser with login credentials Username: `admin` Password: `admin`

@@ -3,6 +3,10 @@
 
 {% block body_class %}template-styling-only{% endblock %}
 
+{% block nav %}
+{% include "includes/nav.html" with classes="top" child_pages=child_pages %}
+{% endblock %}
+
 {% block content %}
         <h1>{{ page.title }}</h1>
         

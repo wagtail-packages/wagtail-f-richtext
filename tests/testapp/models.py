@@ -27,7 +27,13 @@ class BasePage(Page):
 
 
 class HomePage(Page):
-    template = "home_page.html"
+    max_count = 1
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context["child_pages"] = self.get_children().live()
+
+        return context
 
 
 class FRichTextPage(BasePage):
@@ -37,6 +43,12 @@ class FRichTextPage(BasePage):
     content_panels = Page.content_panels + [
         FieldPanel("body"),
     ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context["child_pages"] = self.get_parent().get_children().live()
+
+        return context
 
 
 class FRichTextPageStreamField(BasePage):
@@ -66,3 +78,9 @@ class FRichTextPageStreamField(BasePage):
     content_panels = Page.content_panels + [
         FieldPanel("body") if WAGTAIL_VERSION >= (3, 0) else StreamFieldPanel("body")
     ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context["child_pages"] = self.get_parent().get_children().live()
+
+        return context
