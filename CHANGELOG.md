@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-- [1.0.0](https://github.com/nickmoreton/wagtail-f-richtext/pull/2)
+- Refactor everything
 
 ### Added
 
