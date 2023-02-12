@@ -1,18 +1,11 @@
 import os
 
-from wagtail import VERSION as WAGTAIL_VERSION
-
-PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 SECRET_KEY = "development-only-secret-key"
 DEBUG = True
 ALLOWED_HOSTS = ["*"]
-
-if WAGTAIL_VERSION >= (3, 0):
-    WAGTAIL = "wagtail"
-else:
-    WAGTAIL = "wagtail.core"
 
 INSTALLED_APPS = [
     "tests.testapp",
@@ -23,7 +16,7 @@ INSTALLED_APPS = [
     "wagtail.images",
     "wagtail.admin",
     "wagtail.sites",
-    "wagtail" if WAGTAIL_VERSION >= (3, 0) else "wagtail.core",
+    "wagtail",
     "taggit",
     "rest_framework",
     "django.contrib.admin",
@@ -69,9 +62,33 @@ PASSWORD_HASHERS = ("django.contrib.auth.hashers.MD5PasswordHasher",)
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(PROJECT_DIR, "db.sqlite3"),
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
+
+if os.getenv("DATABASE") == "postgres":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv("DB_NAME", "postgres"),
+            "USER": os.getenv("DB_USER", "postgres"),
+            "PASSWORD": os.getenv("DB_PASSWORD", "postgres"),
+            "HOST": os.getenv("DB_HOST", "localhost"),
+            "PORT": os.getenv("DB_PORT", "5432"),
+        }
+    }
+
+if os.getenv("DATABASE") == "mysql":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": os.getenv("DB_NAME", "mysql"),
+            "USER": os.getenv("DB_USER", "root"),
+            "PASSWORD": os.getenv("DB_PASSWORD", "mysql"),
+            "HOST": os.getenv("DB_HOST", "127.0.0.1"),
+            "PORT": os.getenv("DB_PORT", "3306"),
+        }
+    }
 
 USE_TZ = True
 

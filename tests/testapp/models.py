@@ -1,16 +1,8 @@
 from django.conf import settings
-from wagtail import VERSION as WAGTAIL_VERSION
-
-if WAGTAIL_VERSION >= (3, 0):
-    from wagtail import blocks
-    from wagtail.admin.panels import FieldPanel
-    from wagtail.fields import RichTextField, StreamField
-    from wagtail.models import Page
-else:
-    from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
-    from wagtail.core import blocks
-    from wagtail.core.fields import RichTextField, StreamField
-    from wagtail.core.models import Page
+from wagtail import blocks
+from wagtail.admin.panels import FieldPanel
+from wagtail.fields import RichTextField, StreamField
+from wagtail.models import Page
 
 
 class BasePage(Page):
@@ -37,7 +29,6 @@ class HomePage(Page):
 
 
 class FRichTextPage(BasePage):
-    template = "rich_text.html"
     body = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
@@ -52,31 +43,20 @@ class FRichTextPage(BasePage):
 
 
 class FRichTextPageStreamField(BasePage):
-    template = "stream_field.html"
-    if WAGTAIL_VERSION >= (3, 0):
-        body = StreamField(
-            blocks.StreamBlock(
-                [
-                    (
-                        "rich_text",
-                        blocks.RichTextBlock(template="blocks/f_richtext_block.html"),
-                    ),
-                ]
-            ),
-            use_json_field=True,
-        )
-    else:
-        body = StreamField(
+    body = StreamField(
+        blocks.StreamBlock(
             [
                 (
                     "rich_text",
                     blocks.RichTextBlock(template="blocks/f_richtext_block.html"),
                 ),
             ]
-        )
+        ),
+        use_json_field=True,
+    )
 
     content_panels = Page.content_panels + [
-        FieldPanel("body") if WAGTAIL_VERSION >= (3, 0) else StreamFieldPanel("body")
+        FieldPanel("body"),
     ]
 
     def get_context(self, request, *args, **kwargs):

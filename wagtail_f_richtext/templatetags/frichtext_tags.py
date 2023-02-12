@@ -2,14 +2,9 @@ from django import template
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.module_loading import import_string
-from wagtail import VERSION as WAGTAIL_VERSION
+from wagtail.rich_text import RichText, expand_db_html
 
 from wagtail_f_richtext.parser import fRichTextParser
-
-if WAGTAIL_VERSION >= (3, 0):
-    from wagtail.rich_text import RichText, expand_db_html
-else:
-    from wagtail.core.rich_text import RichText, expand_db_html
 
 register = template.Library()
 
