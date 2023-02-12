@@ -5,7 +5,7 @@ description = "An alternative Wagtail richtext filter that applies classes or st
 authors = ["Nick Moreton <nickmoreton@me.com>"]
 license = "MIT"
 classifiers=[
-    "Development Status :: 5 Production/Stable",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
