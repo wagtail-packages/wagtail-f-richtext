@@ -1,18 +1,11 @@
 import os
 
-from wagtail import VERSION as WAGTAIL_VERSION
-
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 SECRET_KEY = "development-only-secret-key"
 DEBUG = True
 ALLOWED_HOSTS = ["*"]
-
-if WAGTAIL_VERSION >= (3, 0):
-    WAGTAIL = "wagtail"
-else:
-    WAGTAIL = "wagtail.core"
 
 INSTALLED_APPS = [
     "tests.testapp",
@@ -23,7 +16,7 @@ INSTALLED_APPS = [
     "wagtail.images",
     "wagtail.admin",
     "wagtail.sites",
-    "wagtail" if WAGTAIL_VERSION >= (3, 0) else "wagtail.core",
+    "wagtail",
     "taggit",
     "rest_framework",
     "django.contrib.admin",
