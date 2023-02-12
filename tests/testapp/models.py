@@ -29,7 +29,6 @@ class HomePage(Page):
 
 
 class FRichTextPage(BasePage):
-    template = "rich_text.html"
     body = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
@@ -44,8 +43,6 @@ class FRichTextPage(BasePage):
 
 
 class FRichTextPageStreamField(BasePage):
-    template = "stream_field.html"
-
     body = StreamField(
         blocks.StreamBlock(
             [

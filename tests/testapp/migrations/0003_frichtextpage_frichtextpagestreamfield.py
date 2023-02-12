@@ -8,8 +8,7 @@ from wagtail import fields as wagtail_fields
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("wagtailcore", "0069_log_entry_jsonfield"),
-        ("wagtail_f_richtext_tests", "0002_create_homepage"),
+        ("tests_testapp", "0002_create_homepage"),
     ]
 
     operations = [
