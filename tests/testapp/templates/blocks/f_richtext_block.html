@@ -1,0 +1,28 @@
+{% load wagtailcore_tags frichtext_tags %}
+
+<div class="border-box">
+    <p class="label">Template Tag:</p>
+    <div class="padding">{% verbatim %}{{ value|f_richtext:"framework" }}{% endverbatim %}</div>
+    <p class="padding">This template tag will parse the html and add classes defined in your configuration.</p>
+    <p class="label">HTML:</p>
+    <pre><code class="language-html"></code></pre>
+    <div class="beautify padding">{{ value|f_richtext:"framework" }}</div>
+</div>
+
+<div class="border-box">
+    <p class="label">Template Tag:</p>
+    <div class="padding">{% verbatim %}{{ value|f_richtext:"inline_styles" }}{% endverbatim %}</div>
+    <p class="padding">This template tag will parse the html and inline styles defined in your configuration</p>
+    <p class="label">HTML:</p>
+    <pre><code class="language-html"></code></pre>
+    <div class="beautify padding">{{ value|f_richtext:"inline_styles" }}</div>
+</div>
+
+<div class="border-box">
+    <p class="label">Template Tag:</p>
+    <div class="padding">{% verbatim %}{{ value }}{% endverbatim %}</div>
+    <p class="padding">For comparison this is the output from the template tag without a format</p>
+    <p class="label">HTML:</p>
+    <pre><code class="language-html"></code></pre>
+    <div class="beautify padding">{{ value }}</div>
+</div>

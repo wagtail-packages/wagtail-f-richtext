@@ -1,0 +1,119 @@
+@media (min-width: 600px) {
+    nav {
+        position: absolute;
+        top: 2rem;
+        right: 1rem;
+        margin-bottom: 0;
+    }
+}
+
+nav {
+    margin-bottom: 1em;
+}
+
+nav.home {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+nav.home a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: whitesmoke;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    text-align: center;
+}
+
+nav.home a:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+nav.top a {
+    background-color: white;
+    color: #b8565b;
+    text-decoration: none;
+    padding: .25rem .5rem;
+}
+
+nav.top a:hover {
+    background-color: #d86167;
+    color: white;
+}
+
+nav.top a.active {
+    background-color: #d86167;
+    color: white;
+}
+
+.template-styling-only .border-box {
+    border-color: rgb(38, 38, 38);
+    border-style: solid;
+    border-width: .01rem;
+    margin: 1rem 0;
+}
+
+.template-styling-only .border-box pre {
+    margin: 0 0 1em 0;
+}
+
+.template-styling-only .label {
+    background-color: rgb(38, 38, 38);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    padding: .25rem .5rem;
+}
+
+.template-styling-only .border-box .padding {
+    padding: 1em;
+}
+
+body.template-styling-only {
+    margin: 1em;
+    font-family: sans-serif;
+}
+
+body.home {
+    background-color: rgb(38, 38, 38);
+    color: white;
+}
+
+img.f-richtext-image {
+    display: block;
+    margin: 0;
+}
+
+img.f-richtext-image--left {
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+img.f-richtext-image--right {
+    float: right;
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+
+.tag {
+    /* override framework_tachyons */
+    background: none !important;
+    font-size: inherit !important;
+    height: inherit !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
