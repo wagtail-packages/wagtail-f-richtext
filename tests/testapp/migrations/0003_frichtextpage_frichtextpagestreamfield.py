@@ -13,7 +13,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     if WAGTAIL_VERSION >= (3, 0):
         dependencies = [
             ("wagtailcore", "0069_log_entry_jsonfield"),
