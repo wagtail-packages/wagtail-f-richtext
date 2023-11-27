@@ -1,10 +1,14 @@
-[tool.poetry]
+[project]
 name = "wagtail-f-richtext"
 version = "1.0.0"
 description = "An alternative Wagtail richtext filter that applies classes or styles to rich text HTML content."
 readme = "README.md"
 authors = ["Nick Moreton <nickmoreton@me.com>"]
 license = "MIT"
+authors = [
+    {name = "Nick Moreton", email = "nickmoreton@me.com"},
+]
+license = {file = "LICENSE"}
 classifiers=[
     "Development Status :: 5 Production/Stable",
     "Intended Audience :: Developers",
@@ -19,7 +23,6 @@ classifiers=[
     "Programming Language :: Python :: 3.12",
     "Framework :: Django",
     "Framework :: Django :: 3.2",
-    "Framework :: Django :: 4.0",
     "Framework :: Django :: 4.1",
     "Framework :: Django :: 4.2",
     "Framework :: Wagtail",
@@ -56,3 +59,16 @@ python = "^3.11"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+]
+
+requires-python = ">=3.8"
+dependencies = [
+    "wagtail>=4.1",
+]
+
+[project.optional-dependencies]
+development = [
+    "black==23.1.0",
+    "flake8==6.0.0",
+    "isort==5.12.0",
+]
