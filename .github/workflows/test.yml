@@ -96,8 +96,8 @@ jobs:
         database: ["mysql"]
 
     services:
-      mariadb:
-        image: mariadb
+      mysql:
+        image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: mysql
         options: >-
