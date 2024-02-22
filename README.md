@@ -21,7 +21,7 @@ Once the package is added to your Wagtail site, add one or two pieces of configu
 Install the package into your python environment.
 
 ```bash
-pip install wagtail-f-richext
+pip install wagtail-f-richtext
 ```
 
 Add the package to your INSTALLED_APS
