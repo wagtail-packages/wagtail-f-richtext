@@ -34,6 +34,16 @@ Any css framework styles will need to be installed before you will see any style
 
 ## Using the f_richtext filter
 
+The `f_richtext` filter can be used in your templates in the same way as the Wagtail core provided `richtext` filter.
+
+First add the filter to your template.
+
+```html
+{% load wagtail_f_richtext %}
+```
+
+Then use it in your template.
+
 ### with a RichText field
 
 - `{{ page.body|f_richtext:"framework" }}` will add classes to the HTML tags
