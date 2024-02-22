@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+- removes poetry
 - Add loading the richtext filter in a template
 - Fix typo in README.md
 - update for wagtail 6.0, 6.1 & django 4.2 & 50
