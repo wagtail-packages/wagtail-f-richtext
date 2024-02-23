@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+- update for wagtail 6.0, django 4.2 and python 3.9
 - fix actions using mysql image
 
 ## [1.0.0] 2023-02-12
