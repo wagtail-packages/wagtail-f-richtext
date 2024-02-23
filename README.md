@@ -21,7 +21,7 @@ Once the package is added to your Wagtail site, add one or two pieces of configu
 Install the package into your python environment.
 
 ```bash
-pip install wagtail-f-richext
+pip install wagtail-f-richtext
 ```
 
 Add the package to your INSTALLED_APS
@@ -33,6 +33,16 @@ Add the package to your INSTALLED_APS
 Any css framework styles will need to be installed before you will see any style changes for richtext content. If you are using only the inline styles you should see the effect of them applied when a page is viewed.
 
 ## Using the f_richtext filter
+
+The `f_richtext` filter can be used in your templates in the same way as the Wagtail core provided `richtext` filter.
+
+First add the filter to your template.
+
+```html
+{% load wagtail_f_richtext %}
+```
+
+Then use it in your template.
 
 ### with a RichText field
 

@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+- Add loading the richtext filter in a template
+- Fix typo in README.md
 - update for wagtail 6.0, django 4.2 and python 3.9
 - fix actions using mysql image
 
