@@ -1,6 +1,6 @@
 [project]
 name = "wagtail-f-richtext"
-version = "1.0.0"
+version = "1.1.0"
 description = "An alternative Wagtail richtext filter that applies classes or styles to rich text HTML content."
 readme = "README.md"
 keywords = ["wagtail", "richtext", "filter", "html", "class", "style"]
