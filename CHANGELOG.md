@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.1.0] 2024-07-14
+
 - removes poetry
 - Add loading the richtext filter in a template
 - Fix typo in README.md
