@@ -21,7 +21,7 @@ Once the package is added to your Wagtail site, add one or two pieces of configu
 Install the package into your python environment.
 
 ```bash
-pip install wagtail-f-richext
+pip install wagtail-f-richtext
 ```
 
 Add the package to your INSTALLED_APS
@@ -33,6 +33,16 @@ Add the package to your INSTALLED_APS
 Any css framework styles will need to be installed before you will see any style changes for richtext content. If you are using only the inline styles you should see the effect of them applied when a page is viewed.
 
 ## Using the f_richtext filter
+
+The `f_richtext` filter can be used in your templates in the same way as the Wagtail core provided `richtext` filter.
+
+First add the filter to your template.
+
+```html
+{% load wagtail_f_richtext %}
+```
+
+Then use it in your template.
 
 ### with a RichText field
 
@@ -195,11 +205,13 @@ The test app can be run to develop your contribution.
 1. Fork the repo and clone it to your computer.
 2. Change to the folder where you cloned it to.
 
-With [poetry](https://python-poetry.org) installed run:
+Create a virtual environment and install the dependencies:
 
 ```bash
-poetry install
-poetry shell
+python3 -m venv venv
+source venv/bin/activate
+pip install -e ".[development,testing]"
+
 # run the migrations, add an admin account and start the app
 python manage.py migrate
 python manage.py createsuperuser
@@ -221,3 +233,9 @@ make setup
 ```
 
 will run all the above initial commands and creates a superuser with login credentials Username: `admin` Password: `admin`
+
+## Supports
+
+- Wagtail 4.1, 4.2, 5.0, 5.1. 5.2, 6.0
+- Django 3.2, 4.0, 4.1, 4.2
+- Python 3.8, 3.9, 3.10, 3.11, 3.12
