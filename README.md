@@ -205,11 +205,13 @@ The test app can be run to develop your contribution.
 1. Fork the repo and clone it to your computer.
 2. Change to the folder where you cloned it to.
 
-With [poetry](https://python-poetry.org) installed run:
+Create a virtual environment and install the dependencies:
 
 ```bash
-poetry install
-poetry shell
+python3 -m venv venv
+source venv/bin/activate
+pip install -e ".[development,testing]"
+
 # run the migrations, add an admin account and start the app
 python manage.py migrate
 python manage.py createsuperuser
