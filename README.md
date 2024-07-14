@@ -236,6 +236,6 @@ will run all the above initial commands and creates a superuser with login crede
 
 ## Supports
 
-- Wagtail 4.1, 4.2, 5.0, 5.1. 5.2, 6.0
-- Django 3.2, 4.0, 4.1, 4.2
-- Python 3.8, 3.9, 3.10, 3.11, 3.12
+- Wagtail 4.1, 5.2, 6.0
+- Django 3.2, 4.2, 5.0
+- Python 3.9, 3.10, 3.11, 3.12
