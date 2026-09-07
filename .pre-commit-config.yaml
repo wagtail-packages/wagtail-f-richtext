@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/jackdewinter/pymarkdown
-    rev: v0.9.21
+    rev: v0.9.39
     hooks:
       - id: pymarkdown
         args:
@@ -9,7 +9,7 @@ repos:
           - scan
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
-    rev: v0.11.13
+    rev: v0.16.6
     hooks:
       # Run the linter.
       - id: ruff-check
