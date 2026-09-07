@@ -139,7 +139,7 @@ F_RICHTEXT_FRAMEWORK_CONFIG = {
 ```python
 F_RICHTEXT_INLINE_CONFIG = {
     # target html tags
-     "styles": {
+    "styles": {
         "h1": "margin-bottom: 1em;",
         "h2": "margin-bottom: 1em;",
         "h3": "margin-bottom: 1em;",
@@ -185,7 +185,7 @@ The parser class can be extended to add your own parsing requirements.
 Create your own class that inherits from [fRichTextParser](./wagtail_f_richtext/parser.py) and add the following to your apps settings.
 
 ```python
-F_RICHTEXT_PARSER_CLASS="the.dotted.path.to.your.own.Class"
+F_RICHTEXT_PARSER_CLASS = "the.dotted.path.to.your.own.Class"
 ```
 
 ### Use your own runner function
@@ -195,7 +195,7 @@ The order of the parsing and loading of your configuration is done in the runner
 Create your own [runner function](./wagtail_f_richtext/parser.py#L102) in a suitable place and add the following settings to your app.
 
 ```python
-F_RICHTEXT_PARSER_RUNNER="the.dotted.path.to.your.own.function"
+F_RICHTEXT_PARSER_RUNNER = "the.dotted.path.to.your.own.function"
 ```
 
 ## Contributing

@@ -65,7 +65,7 @@ class fRichTextParser:
 
         return (
             mark_safe(
-                f'<{html_tag} {wrapper_attribute}="{values}">{str(self.soup)}</{html_tag}>'
+                f'<{html_tag} {wrapper_attribute}="{values}">{self.soup!s}</{html_tag}>'
             )
             if values
             else mark_safe(str(self.soup))

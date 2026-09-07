@@ -168,6 +168,6 @@ F_RICHTEXT_INLINE_CONFIG = {
 }
 
 try:
-    from .gitpod_settings import *  # noqa
+    from .gitpod_settings import *
 except ImportError:
     pass
